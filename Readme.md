@@ -1,4 +1,4 @@
-# Soft-NER: A Multi-Level Attentive NER model for Fine-grained SoftwareEntity Extraction
+# Soft-NER: A Multi-Level Attentive NER model for Fine-grained Software Entity Extraction
 
 This repsoitory will be updated with the code and data from the following paper:
    
