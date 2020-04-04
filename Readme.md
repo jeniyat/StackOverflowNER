@@ -1,4 +1,4 @@
-This repsoitory contains the code and data from the following paper:
+This repsoitory will be updated with the code and data from the following paper:
    
 	@inproceedings{Tabassum20acl,
     title = {An Empirical Study of Named Entity Recognition in StackOverflow},
