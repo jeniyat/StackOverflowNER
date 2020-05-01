@@ -1,4 +1,4 @@
-# The conll format:
+# Data format:
 
 In  datasets are represented in the Conll format. In this format each line of the is in the following format:
 
