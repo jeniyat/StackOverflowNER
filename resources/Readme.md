@@ -1,14 +1,3 @@
-# Dataset and Model for Fine-grained Software Entity Extraction
+# Downloading Resources
 
-
-
-This repsoitory will be updated with the code and data from the following paper:
-
-
-
-      @inproceedings{Tabassum20acl,
-          title = {An Empirical Study of Named Entity Recognition in StackOverflow},
-          author = "Tabassum, Jeniya and Maddela, Mounica and  Xu, Wei  and Ritter, Alan",
-          booktitle = {The 58th Annual Meeting of the Association for Computational Linguistics (ACL)},
-          year = {2020}
-      }
+Download the [pretrained word vectores](https://mega.nz/folder/rMZyUAaK#Q_7PokhbI6IZ584ZfoIYXw) and put in this directory.
