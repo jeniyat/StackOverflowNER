@@ -1,6 +1,6 @@
 # Dataset and Model for Fine-grained Software Entity Extraction
 
-This repository contains all the code and data proposed in the paper:  **Code and Named Entity Recognition in  StackOverflow (ACL 2020)**
+This repository contains all the code and data proposed in the paper:  **Code and Named Entity Recognition in  StackOverflow (ACL 2020)[pdf](https://www.google.com)**
 
 Please check the `code/NER/` folder for the source code of our NER tagger.
 
