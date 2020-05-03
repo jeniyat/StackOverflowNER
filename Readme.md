@@ -1,6 +1,6 @@
 # Dataset and Model for Fine-grained Software Entity Extraction
 
-Please check the `code` folder for the source code of NER tagger
+Please check the `code/NER/` folder for the source code of NER tagger
 
 Please check the `resources/annotated_ner_data/` folder for the annotated data with StackOverflow named entities.
 
