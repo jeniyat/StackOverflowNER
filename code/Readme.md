@@ -4,11 +4,13 @@ Downlaod all the pretrained in-domain word vectors and put them in the `resource
 
 Inside the `NER` folder run the following command:
 
-`python train_so.py `
+```
+		python train_so.py 
+```
 
-By default it will show the evaluation on the `test` set.
 
-To evaluate on the dev set run the following command:
+By default it will show the evaluation on the `test` set. To evaluate on the dev set run the following command:
 
-`python train_so.py -mode dev`
-
+```
+		python train_so.py -mode dev
+```
