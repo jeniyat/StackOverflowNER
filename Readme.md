@@ -8,6 +8,8 @@ Please check the `resources/annotated_ner_data/` folder for our annotated data w
 If you use the code or the data, please cite the following paper: **Code and Named Entity Recognition in 
 StackOverflow** as below:
 
+To cite the data or the code included in this repository, please use the following bibtex entry:
+
 
       @inproceedings{Tabassum20acl,
           title = {Code and Named Entity Recognition in StackOverflow},
