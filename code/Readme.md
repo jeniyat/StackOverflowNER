@@ -26,3 +26,16 @@ By default this code base will run on GPU ID `0`. You can change the gpu id by t
 ```
 		python train_so.py -gpu_id 1
 ```
+
+
+# Reading the annotated files:
+
+To read the dataset only use the loader_so.py file from `DataReader` folder as below:
+
+
+```
+	import loader_so
+	>>> path_to_file = "../../resources/annotated_ner_data/StackOverflow/train.txt"
+	>>> all_sentneces = loader_so.loade_so_text(path_to_file)
+ 
+```
