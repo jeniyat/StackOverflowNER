@@ -123,9 +123,12 @@ class BiLSTM_CRF(nn.Module):
 
         print('char_mode: %s, out_channels: %d, hidden_dim: %d, ' % (char_mode, char_lstm_dim, hidden_dim))
         # self.lstm=nn.LSTM(self.get_lstm_input_dim(),hidden_dim, bidirectional=True)
-        self.lstm=nn.LSTM(1824,hidden_dim, bidirectional=True)
+        if parameters['use_han']:
+            self.lstm=nn.LSTM(300,hidden_dim, bidirectional=True)
+        else:
+            self.lstm=nn.LSTM(1824,hidden_dim, bidirectional=True)
         
-        # self.lstm_2=nn.LSTM(hidden_dim*2,hidden_dim, bidirectional=True)
+        
         
 
         if self.use_elmo:
@@ -245,135 +248,7 @@ class BiLSTM_CRF(nn.Module):
 
 
     
-    def get_lstm_input_dim(self):
-        if self.use_elmo:
-            if not parameters['use_freq_vector'] and parameters['use_markdown_vector'] and parameters['use_segmentation_vector']:
-               print(".................",parameters["elmo_dim"]+parameters['markdown_dim']+parameters['segmentation_dim']) 
-               return parameters["elmo_dim"]+parameters['markdown_dim']+parameters['segmentation_dim']
-               # return parameters["elmo_dim"]+parameters['freq_dim']+parameters['markdown_dim']+parameters['segmentation_dim']
-
-            elif parameters['use_freq_vector'] and parameters['use_markdown_vector']:
-                return parameters["elmo_dim"]+parameters['freq_dim']+parameters['markdown_dim']
-
-            elif parameters['use_freq_vector'] and not parameters['use_markdown_vector']:
-                return (parameters["elmo_dim"]+parameters['freq_dim'])
-
-            elif not parameters['use_freq_vector'] and parameters['use_markdown_vector']:
-                return (parameters["elmo_dim"]+parameters['markdown_dim'])
-
-            else:
-                return (parameters["elmo_dim"])
-
-            
-
-            if parameters['use_elmo_w_char']:
-                if self.n_cap and self.cap_embedding_dim:
-                    self.cap_embeds = nn.Embedding(self.n_cap, self.cap_embedding_dim)
-                    init_embedding(self.cap_embeds.weight)
-
-                if char_embedding_dim is not None:
-                    self.char_lstm_dim = char_lstm_dim
-                    self.char_embeds = nn.Embedding(len(char_to_ix), char_embedding_dim)
-                    init_embedding(self.char_embeds.weight)
-
-                    if self.char_mode == 'LSTM':
-                        self.char_lstm = nn.LSTM(char_embedding_dim, char_lstm_dim, num_layers=1, bidirectional=True)
-                        init_lstm(self.char_lstm)
-                    if self.char_mode == 'CNN':
-                        self.char_cnn3 = nn.Conv2d(in_channels=1, out_channels=self.out_channels, kernel_size=(3, char_embedding_dim), padding=(2,0))
-
-                    if self.n_cap and self.cap_embedding_dim:
-                        if self.char_mode == 'LSTM':
-                            if parameters['use_freq_vector']:
-                                return (parameters["elmo_dim"]+char_lstm_dim*2+cap_embedding_dim+parameters['freq_dim']+parameters['markdown_dim'])
-                            else:
-                                return (parameters["elmo_dim"]+char_lstm_dim*2+cap_embedding_dim)
-                        
-
-                        if self.char_mode == 'CNN':
-                            if parameters['use_freq_vector']:
-                                return (parameters["elmo_dim"]+self.out_channels+cap_embedding_dim+parameters['freq_dim']+parameters['markdown_dim'])
-                            else:
-                                return (parameters["elmo_dim"]+self.out_channels+cap_embedding_dim)
-                    else:
-                        if self.char_mode == 'LSTM':
-                            if parameters['use_freq_vector']:
-                                return (parameters["elmo_dim"]+char_lstm_dim*2+parameters['freq_dim']+parameters['markdown_dim'])
-                            else:
-                                return (parameters["elmo_dim"]+char_lstm_dim*2)
-                        if self.char_mode == 'CNN':
-                            if parameters['use_freq_vector']:
-                                return (parameters["elmo_dim"]+self.out_channels+parameters['freq_dim']+parameters['markdown_dim'])
-                            else:
-                                return (parameters["elmo_dim"]+self.out_channels)
-
-           
-
-        else:
-            if self.n_cap and self.cap_embedding_dim:
-                self.cap_embeds = nn.Embedding(self.n_cap, self.cap_embedding_dim)
-                init_embedding(self.cap_embeds.weight)
-
-            if char_embedding_dim is not None:
-                self.char_lstm_dim = char_lstm_dim
-                self.char_embeds = nn.Embedding(len(char_to_ix), char_embedding_dim)
-                init_embedding(self.char_embeds.weight)
-                
-                if self.char_mode == 'LSTM':
-                    self.char_lstm = nn.LSTM(char_embedding_dim, char_lstm_dim, num_layers=1, bidirectional=True)
-                    init_lstm(self.char_lstm)
-                if self.char_mode == 'CNN':
-                    self.char_cnn3 = nn.Conv2d(in_channels=1, out_channels=self.out_channels, kernel_size=(3, char_embedding_dim), padding=(2,0))
-
-            self.word_embeds = nn.Embedding(vocab_size, embedding_dim)
-            if pre_word_embeds is not None:
-                self.pre_word_embeds = True
-                self.word_embeds.weight = nn.Parameter(torch.FloatTensor(pre_word_embeds))
-            else:
-                self.pre_word_embeds = False
-
-            
-            
-            if self.n_cap and self.cap_embedding_dim:
-                if self.char_mode == 'LSTM':
-                    if parameters['use_freq_vector'] and parameters['use_markdown_vector']:
-                        return (embedding_dim+char_lstm_dim*2+cap_embedding_dim+parameters['freq_dim']+parameters['markdown_dim'])
-                    elif parameters['use_freq_vector'] and not parameters['use_markdown_vector']:
-                        return (embedding_dim+char_lstm_dim*2+cap_embedding_dim+parameters['freq_dim'])
-                    elif not parameters['use_freq_vector'] and parameters['use_markdown_vector']:
-                        return (embedding_dim+char_lstm_dim*2+cap_embedding_dim+parameters['markdown_dim'])
-                    else:
-                        return (embedding_dim+char_lstm_dim*2+cap_embedding_dim)
-                if self.char_mode == 'CNN':
-                    if parameters['use_freq_vector']and parameters['use_markdown_vector']:
-                        return (embedding_dim+self.out_channels+cap_embedding_dim+parameters['freq_dim']+parameters['markdown_dim'])
-                    elif parameters['use_freq_vector']and not parameters['use_markdown_vector']:
-                        return (embedding_dim+self.out_channels+cap_embedding_dim+parameters['freq_dim'])
-                    elif parameters['use_freq_vector']and parameters['use_markdown_vector']:
-                        return (embedding_dim+self.out_channels+cap_embedding_dim+parameters['markdown_dim'])
-                    else:
-                        return (embedding_dim+self.out_channels+cap_embedding_dim)
-            else:
-                if self.char_mode == 'LSTM' :
-                    if parameters['use_freq_vector'] and parameters['use_markdown_vector'] :
-                        return (embedding_dim+char_lstm_dim*2+parameters['freq_dim']+parameters['markdown_dim'])
-                    elif parameters['use_freq_vector'] and not parameters['use_markdown_vector'] :
-                        return (embedding_dim+char_lstm_dim*2+parameters['freq_dim'])
-                    elif not parameters['use_freq_vector'] and parameters['use_markdown_vector'] :
-                        return (embedding_dim+char_lstm_dim*2+parameters['markdown_dim'])
-                    else:
-                        return (embedding_dim+char_lstm_dim*2)
-
-                if self.char_mode == 'CNN':
-                    if parameters['use_freq_vector'] and parameters['use_markdown_vector']:
-                        return (embedding_dim+self.out_channels+parameters['freq_dim']+parameters['markdown_dim'])
-                    elif parameters['use_freq_vector'] and not parameters['use_markdown_vector']:
-                        return (embedding_dim+self.out_channels+parameters['freq_dim'])
-                    elif not parameters['use_freq_vector'] and parameters['use_markdown_vector']:
-                        return (embedding_dim+self.out_channels+parameters['markdown_dim'])
-
-                    else:
-                        return (embedding_dim+self.out_channels)
+    
 
 
     def _score_sentence(self, feats, tags):
@@ -562,13 +437,15 @@ class BiLSTM_CRF(nn.Module):
         
         
 
-
-
-        # attentive_word_embeds = self.apply_attention(elmo_embeds, segment_embeddings, ctc_pred_embeddings)
+        if parameters['use_han']:
+            attentive_word_embeds = self.apply_attention(elmo_embeds, segment_embeddings, ctc_pred_embeddings)
+            embeds=attentive_word_embeds
 
         
-        
-        embeds = embeds.unsqueeze(1)
+        else:
+            embeds = embeds.unsqueeze(1)
+
+
         embeds = self.dropout(embeds)
         
 

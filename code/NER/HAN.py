@@ -18,7 +18,7 @@ class Embeeding_Attn(nn.Module):
     super(Embeeding_Attn, self).__init__()
     
     self.max_len = 3
-    self.input_dim = 1024*4
+    self.input_dim = 1824
     self.hidden_dim = 150
     self.bidirectional = True
     self.drop_out_rate = 0.5 

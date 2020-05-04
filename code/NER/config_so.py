@@ -222,6 +222,10 @@ parser.add_argument(
     "-use_segmentation_vector", '--use_segmentation_vector', default='1',
     type=int, help='whether or not to ues the code_pred vector'
 )
+parser.add_argument(
+    "-use_han", '--use_han', default='1',
+    type=int, help='whether or not to ues HAN networkd'
+)
 
 
 opts = parser.parse_args()
@@ -336,6 +340,7 @@ parameters['ner_pred_dim'] = 500
 parameters['ner_pred_count']=41
 
 
+parameters['use_han'] = opts.use_han == 1 
 
 parameters['use_code_recognizer_vector'] = True
 parameters['code_recognizer_dim'] = 300

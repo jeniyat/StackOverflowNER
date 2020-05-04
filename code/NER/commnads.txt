@@ -1,1 +1,0 @@
-python train_so.py -use_gpu 1 -gpu_id 1  --epochs 10   -file_identifier test2 

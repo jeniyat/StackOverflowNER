@@ -531,7 +531,13 @@ def train_model(model, step_lr_scheduler, optimizer, train_data, dev_data, test_
         model.train(False)
 
         best_train_F, new_train_F, _ = evaluating(model, train_data,  best_train_F,  epoch, "train")
-        best_dev_F, new_dev_F, save = evaluating(model, dev_data, best_dev_F, epoch, "dev") 
+
+        if parameters["mode"]=="dev":
+            phase_name="dev"
+        else:
+            phase_name="test"
+
+        best_dev_F, new_dev_F, save = evaluating(model, dev_data, best_dev_F, epoch, phase_name) 
         if save:
             torch.save(model, model_name)
         best_test_F, new_test_F = 0, 0
