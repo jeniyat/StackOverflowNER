@@ -35,9 +35,45 @@ To read the dataset only use the loader_so.py file from `DataReader` folder as b
 
 ```
 	import loader_so
-	>>> path_to_file = "../../resources/annotated_ner_data/StackOverflow/train.txt"
-	>>> all_sentneces = loader_so.loader_so_text(path_to_file)
+	path_to_file = "../../resources/annotated_ner_data/StackOverflow/train.txt"
+	all_sentneces = loader_so.loader_so_text(path_to_file)
  
 ```
 
-By default the 
+By default the `loader_so_text` function merges the following 6 entities to 3 as below: 
+
+```
+ 	"Library_Function" -> "Function"
+    "Function_Name" -> "Function"
+
+    "Class_Name" -> "Class"
+    "Library_Class" -> "Class"
+
+    "Library_Variable" -> "Variable"
+    "Variable_Name" -> "Variable"
+
+    "Website" -> "Website"
+    "Organization" -> "Website"
+
+```
+
+To skip this merging, set `merge_tag= False` as below:
+
+```
+	import loader_so
+	path_to_file = "../../resources/annotated_ner_data/StackOverflow/train.txt"
+	all_sentneces = loader_so.loader_so_text(path_to_file,merge_tag=False)
+ 
+```
+
+
+By default the `loader_so_text` function will convert the 5 low frequency enttiy as "O". To skip this conversion, set `replace_low_freq_tags= False` as below:
+
+
+
+```
+	import loader_so
+	path_to_file = "../../resources/annotated_ner_data/StackOverflow/train.txt"
+	all_sentneces = loader_so.loader_so_text(path_to_file, replace_low_freq_tags= False)
+ 
+```
