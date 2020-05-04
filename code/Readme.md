@@ -43,7 +43,7 @@ To read the dataset only use the loader_so.py file from `DataReader` folder as b
 By default the `loader_so_text` function merges the following 6 entities to 3 as below: 
 
 ```
- 	"Library_Function" -> "Function"
+    "Library_Function" -> "Function"
     "Function_Name" -> "Function"
 
     "Class_Name" -> "Class"
