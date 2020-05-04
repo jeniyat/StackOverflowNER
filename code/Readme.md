@@ -36,6 +36,8 @@ To read the dataset only use the loader_so.py file from `DataReader` folder as b
 ```
 	import loader_so
 	>>> path_to_file = "../../resources/annotated_ner_data/StackOverflow/train.txt"
-	>>> all_sentneces = loader_so.loade_so_text(path_to_file)
+	>>> all_sentneces = loader_so.loader_so_text(path_to_file)
  
 ```
+
+By default the 

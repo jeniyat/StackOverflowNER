@@ -74,7 +74,7 @@ def Merge_Label(inputFile):
 
 
 
-def loade_so_text(path, merge_tag=True, replace_low_freq_tags=True):
+def loader_so_text(path, merge_tag=True, replace_low_freq_tags=True):
 	if merge_tag:
 		path=Merge_Label(path)
 
@@ -166,7 +166,7 @@ if __name__ == '__main__':
 	merge_tag= True
 	replace_low_freq_tags= True
 
-	all_sentneces = loade_so_text(path_to_file, merge_tag, replace_low_freq_tags)
+	all_sentneces = loader_so_text(path_to_file, merge_tag, replace_low_freq_tags)
 
 
 
