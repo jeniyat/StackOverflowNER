@@ -77,3 +77,22 @@ By default the `loader_so_text` function will convert the 5 low frequency enttiy
     all_sentneces = loader_so.loader_so_text(path_to_file, replace_low_freq_tags= False)
  
 ```
+
+# Run the Tokenizer:
+
+To tokenized the code-mixed texts from StackOverflow utilized the source codes insides the `SOTokenizer` folder as below:
+
+```
+import stokenizer
+sentence = 'I do think that the request I send to my API should be more like {post=>{"kind"=>"GGG"}} and not {"kind"=>"GGG"}.'
+tokens = stokenizer.tokenize(sentence)
+print("tokens: ",tokens)
+
+```
+Tokenized Output:
+
+```
+tokens:  ['I', 'do', 'think', 'that', 'the', 'request', 'I', 'send', 'to', 'my', 'API', 'should', 'be', 'more', 'like', ' { post=> { "kind"=>"GGG" }  } ', 'and', 'not', ' { "kind"=>"GGG" } ', '.']
+
+```
+
