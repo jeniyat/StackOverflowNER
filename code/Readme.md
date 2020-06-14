@@ -17,7 +17,7 @@ To train the model run the following command inside the `BERT_NER/fine-tune/` fo
     bash run_train.sh
 ```
 
-You can download the pretrained software domain bert-base model from [BERTOverflow](https://github.com/lanwuwei/BERTOverflow).
+This BERT-NER uses the pretrained stackoverflow domain bert-representations from [BERTOverflow](https://github.com/lanwuwei/BERTOverflow).
 
 # Running Attentive-BiLSTM NER Model:
 
