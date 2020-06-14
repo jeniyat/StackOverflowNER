@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=0 python run_ner_so.py --model_name_or_path word_piece_1_0m/ --output_dir bert-word-piece-softner/  --data_dir ./ip_ner/ --model_type bert --labels ./labels_so.txt  --seed 0 --do_predict --overwrite_output_dir
