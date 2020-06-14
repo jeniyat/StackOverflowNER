@@ -1,4 +1,25 @@
-# Running NER Model:
+# Running BERT NER Model:
+
+Download the [bert-word-piece-softner.zip](https://mega.nz/file/aBgWESJB#0LDKqizbTAlWHUReUSiJ-prgc2LngjzmktUzMC3-Jk0) and [word_piece_1_0m.zip](https://mega.nz/file/yE5WACBI#v1CQLM7I9451NVF2SBG8zu3UQvWAml7DAk6tybh9HkA) and unzip inside the `BERT_NER/fine-tune/` folder.
+
+To extract the predictions on dev and test set, first install the transformer from by running `pip install .` inside the `BERT_NER/transformers/` folder. Then run the following command inside the `BERT_NER/fine-tune/` folder:
+
+```
+    bash run_predict.sh
+```
+
+- It will print the perfromance of the model on dev and test set at the `stdout` 
+- It will save the predictions on dev and test set at `bert-word-piece-softner/dev_predictions.txt`, `bert-word-piece-softner/test_predictions.txt` respectively.
+
+To train the model run the following command inside the `BERT_NER/fine-tune/` folder:
+
+```
+    bash run_train.sh
+```
+
+You can download the pretrained software domain bert-base model from [BERTOverflow](https://github.com/lanwuwei/BERTOverflow).
+
+# Running Attentive-BiLSTM NER Model:
 
 Downlaod all the pretrained in-domain word vectors and put them in the `resources/pretrained_word_vectors/`.
 
