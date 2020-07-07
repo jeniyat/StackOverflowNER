@@ -1,0 +1,9 @@
+Question_ID: 13352832
+Question_URL: https://stackoverflow.com/questions/13352832/
+
+I've got this as XML:
+CODE_BLOCK: Q_1 (code omitted for annotation)
+I've got this as php:
+CODE_BLOCK: Q_1 (code omitted for annotation)
+Now the problem is this, I'm forced to have $testcase in a lowercase form (defaultimage) BUT in the XML file the name of the child is: defaultImage (note the uppercase I)
+Question: How can I handle all the children as lowercases?

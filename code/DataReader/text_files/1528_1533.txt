@@ -1,0 +1,7 @@
+Question_ID: 1528_1533
+Question_URL: https://stackoverflow.com/questions/1528_1533/
+
+While you cannot prevent usage of those inherited members to my knowledge, you should be able to hide them from IntelliSense using the EditorBrowsableAttribute:
+CODE_BLOCK: Q_1 (code omitted for annotation)
+Edit: Just saw this in the documentation comments, which makes it kinda useless for this purpose:
+OP_BLOCK: (output omitted for annotation)

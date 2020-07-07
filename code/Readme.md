@@ -1,23 +1,27 @@
 # Running BERT NER Model:
 
-Download the [bert-word-piece-softner.zip](https://mega.nz/file/aBgWESJB#0LDKqizbTAlWHUReUSiJ-prgc2LngjzmktUzMC3-Jk0) and [word_piece_1_0m.zip](https://mega.nz/file/yE5WACBI#v1CQLM7I9451NVF2SBG8zu3UQvWAml7DAk6tybh9HkA) and unzip inside the `BERT_NER/fine-tune/` folder.
+## Prerequisitie:
+1. Install the modified version of [huggingface transformers](https://github.com/lanwuwei/BERTOverflow). This respository contains all the necessary modification we made in the to adapt the `BertTokenClassifier` with embedding level attention.
 
-To extract the predictions on dev and test set, first install the transformer from by running `pip install .` inside the `BERT_NER/transformers/` folder. Then run the following command inside the `BERT_NER/fine-tune/` folder:
+2. Download the [utils_fine_tune.zip](https://mega.nz/file/DVBBXY4T#WkAemMHDV-8OV9CwaX4FH4U9JnaEFTjoakkV0IN6CjA) and unzip inside `BERT_NER`.
+
+3. Download the [data_ctc.zip](https://mega.nz/file/DVBBXY4T#WkAemMHDV-8OV9CwaX4FH4U9JnaEFTjoakkV0IN6CjA) and unzip. Update the `parameters_ctc['RESOURCES_base_directory']` path with the abosolute path of the unzipped folder. The `parameters_ctc['RESOURCES_base_directory']` is defined inside the `utils_ctc/config_ctc.py` file.
+
+
+## Extract the prediction on a new input file:
+
+To extract the software entities from a given file run the following:
 
 ```
-    bash run_predict.sh
+    python E2E_SoftNER.py --input_file_with_so_body xml_filted_body
 ```
 
-- It will print the perfromance of the model on dev and test set at the `stdout` 
-- It will save the predictions on dev and test set at `bert-word-piece-softner/dev_predictions.txt`, `bert-word-piece-softner/test_predictions.txt` respectively.
+- It will save the predictions on the input file at `ner_preds.txt`
 
-To train the model run the following command inside the `BERT_NER/fine-tune/` folder:
 
-```
-    bash run_train.sh
-```
+## Replicate the reported results:
 
-This BERT-NER uses the pretrained stackoverflow domain bert-representations from [BERTOverflow](https://github.com/lanwuwei/BERTOverflow).
+
 
 # Running Attentive-BiLSTM NER Model:
 

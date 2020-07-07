@@ -1,0 +1,16 @@
+Question_ID: 13347179
+Question_URL: https://stackoverflow.com/questions/13347179/
+
+There are many folks out there that claim their singleton implementation to be robust and general because it uses metaprogramming constructs.
+My goal is to enforce a singleton policy onto a derived class so that I do not have to explicitly (manually) declare the derived class' constructors as private.
+I think there's a way to naively add the instance static variable and the getter as a policy by making the templated singleton a friend of the class you derive.
+But that's not at all elegant.
+I started with this code, that, among other things, is given as being a correct (i.e. complete) design of a singleton, while it is clearly allowing for multiple instances:
+CODE_BLOCK: Q_1 (code omitted for annotation)
+And a singleton client of this "policy", using CRTP:
+CODE_BLOCK: Q_1 (code omitted for annotation)
+NOTE this is not a correct implementation of a CRTP Singleton policy, it's merely part of the question!
+The code won't compile as is.
+The base singleton policy class has its constructor declared private, so it can't support derived instances unless the child is a friend of this class.
+People usually make the constructors protected, which means there's nothing to keep a user from making derived class non-singletonian.
+Problem/Question: Is there any mechanism to enforce a singleton policy without having to make the derived class' constructors private manually?
