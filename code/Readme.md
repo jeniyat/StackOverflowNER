@@ -3,7 +3,7 @@
 ## Prerequisitie:
 1. Install the modified version of [huggingface transformers](https://github.com/lanwuwei/BERTOverflow). This respository contains all the necessary modification we made in the to adapt the `BertTokenClassifier` with embedding level attention.
 
-2. Download the [utils_fine_tune.zip](https://mega.nz/file/DVBBXY4T#WkAemMHDV-8OV9CwaX4FH4U9JnaEFTjoakkV0IN6CjA) and unzip inside `BERT_NER`.
+2. Download the [utils_fine_tune.zip](https://mega.nz/file/bRp3lTBY#lHamCVxeVr6wfsdjFpgqimvWZ5vJoeRyoaU40-7pl5c) and unzip inside `BERT_NER`.
 
 3. Download the [data_ctc.zip](https://mega.nz/file/DVYUkATS#DqDKlYPT2zfXSaAy5oTvolNrBLJzS5bRV5m_m3qUreU) and unzip. Update the `parameters_ctc['RESOURCES_base_directory']` path with the abosolute path of the unzipped folder. The `parameters_ctc['RESOURCES_base_directory']` is defined inside the `utils_ctc/config_ctc.py` file.
 
