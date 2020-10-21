@@ -120,6 +120,6 @@ Tokenized Output:
 	tokens:  ['I', 'do', 'think', 'that', 'the', 'request', 'I', 'send', 'to', 'my', 'API', 'should', 'be', 'more', 'like', ' { post=> { "kind"=>"GGG" }  } ', 'and', 'not', ' { "kind"=>"GGG" } ', '.']
 
 ```
-# Resource
+# Resources:
 
-All the files required can be found here: https://mega.nz/folder/ycxnmSJL#8ZQgHEqBAaGbij3uAHhsSw
+All the required resource files can be found here: https://mega.nz/folder/ycxnmSJL#8ZQgHEqBAaGbij3uAHhsSw
