@@ -1,7 +1,7 @@
 # Running BERT NER Model:
 
 ## Prerequisitie:
-1. Install the modified version of [huggingface transformers](https://github.com/lanwuwei/BERTOverflow). This respository contains all the necessary modification we made in the to adapt the `BertTokenClassifier` with embedding level attention.
+1. Install the modified version of [huggingface transformers](https://github.com/jeniyat/Attentive_Transformer_NER) and [pretrained BERTOverflow](https://github.com/lanwuwei/BERTOverflow). This respositories contains all the necessary checkpoints and modifications that we made in the to adapt the `BertTokenClassifier` with embedding level attention.
 
 2. Download the [utils_fine_tune.zip](https://mega.nz/file/bRp3lTBY#lHamCVxeVr6wfsdjFpgqimvWZ5vJoeRyoaU40-7pl5c) and unzip inside `BERT_NER`.
 
