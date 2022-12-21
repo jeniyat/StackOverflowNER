@@ -2,7 +2,6 @@
 
 This repository contains all the code and data proposed in the paper:  **Code and Named Entity Recognition in  StackOverflow. (ACL 2020)**.  [[Paper PDF](https://arxiv.org/pdf/2005.01634.pdf)]
 
-Checkout a demo of our work here [http://sdl898-ritter2.cse.ohio-state.edu:8923/#](http://sdl898-ritter2.cse.ohio-state.edu:8923/#)
 
 For the source code of our NER tagger, check the `code/NER/` folder.
 
